@@ -1,0 +1,60 @@
+body {
+  padding-top: 30px;
+  background-color: black;
+}
+
+/* terminal */
+
+#terminal {
+  margin-bottom: 10px;
+  border: 1px white solid;
+  height: 300px;
+  overflow: auto;
+  border-radius: 3px;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+}
+
+.terminal-message {
+  border-top: 1px solid gray;
+}
+
+.message-time {
+  color:  gray;
+}
+
+.message-source {
+  color: white;
+}
+
+.message-body {
+  color: rgb(73, 219, 255);
+}
+
+/* prompt */
+
+#prompt {
+  margin-top: -11px;
+}
+
+#prompt input {
+  border-radius: 3px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  border-top: 1px solid white;
+  padding-left: 5px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  outline: none;
+}
+
+#autocomplete {
+  position: absolute;
+  /*margin-top: -155px;*/
+  margin-top: 25px;
+}
+
+
+/* subsystems */
