@@ -7,3 +7,5 @@ pod_control_screen.png
 /src/css/font-awesome.min.css
 
 /src/fonts/
+
+.*.swp
