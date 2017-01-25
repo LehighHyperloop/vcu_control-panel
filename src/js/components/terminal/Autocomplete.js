@@ -12,6 +12,9 @@ class Autocomplete extends Component {
       return null
     }
 
+    // TODO: autocomplete disabled
+    return null
+
     return (
       <div id="autocomplete" className="btn-group open">
         <div className="dropdown-menu">
