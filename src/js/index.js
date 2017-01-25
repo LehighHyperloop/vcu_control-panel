@@ -18,3 +18,12 @@ ReactDOM.render(
 // simulation
 
 // subsystemStore.updateSubsystem("compressor", "COMPRESSOR_STARTING")
+
+var client = mqtt.connect("ws://localhost:9883/")
+client.subscribe("debug")
+
+client.on("message", function (topic, payload) {
+  alert([topic, payload].join(": "))
+})
+
+client.publish("debug", "hello world!")
