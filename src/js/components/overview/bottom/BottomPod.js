@@ -20,6 +20,10 @@ class BottomPod extends Component {
     }
 
     return (
+      <div>lol</div>
+    )
+
+    return (
       // change size here
       <svg width="240px" height="962px" viewBox="210 74 240 962" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
