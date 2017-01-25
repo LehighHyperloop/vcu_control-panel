@@ -16,7 +16,7 @@ class Subsystem extends Component {
     switch(stateLevel) {
       case "ok":
         cardClass = "success"
-        iconClass = "fa-bicycle faa-passing animated"
+        iconClass = "fa-check"
         break;
 
       case "stopped":

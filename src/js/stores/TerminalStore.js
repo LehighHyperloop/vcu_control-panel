@@ -24,11 +24,4 @@ class TerminalStore {
 
 let terminalStore = window.terminalStore = new TerminalStore
 
-// populate with some dummy data
-for(var i = 0; i < 10; i++) {
-  terminalStore.createMessage("17:41:221", "levitation/controller", "All systems OK")
-  terminalStore.createMessage("17:42:455", "main_controller", "Prepare for liftoff")
-  terminalStore.createMessage("17:43:787", "sensor/front_right/temp", "We are going fast")
-}
-
 export default terminalStore

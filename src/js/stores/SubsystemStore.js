@@ -102,15 +102,25 @@ subsystemStore.subsystemStates = [
   new SubsystemState("COMPRESSOR_STOPPING", "progress"),
   new SubsystemState("VFD_STOPPING", "progress"),
   new SubsystemState("FAULT", "error"),
-  new SubsystemState("ESTOP", "error")
+  new SubsystemState("ESTOP", "error"),
+  new SubsystemState("EXTENDED", "ok"),
+  new SubsystemState("RETRACTED", "stopped"),
+  new SubsystemState("READY", "stopped"),
+  new SubsystemState("RUNNING", "ok"),
+  new SubsystemState("RUNNING_AND_LOGGING", "ok"),
+  new SubsystemState("DOWN", "stopped"),
+  new SubsystemState("UP", "ok"),
+  new SubsystemState("OFF", "stopped"),
+  new SubsystemState("ON", "ok"),
 ]
 
-subsystemStore.createSubsystem("Compressor", subsystemStore.subsystemStates[1])
-subsystemStore.createSubsystem("Fan", subsystemStore.subsystemStates[2])
-subsystemStore.createSubsystem("Propulsion", subsystemStore.subsystemStates[3])
-subsystemStore.createSubsystem("Levitation", subsystemStore.subsystemStates[4])
-subsystemStore.createSubsystem("Suspension", subsystemStore.subsystemStates[3])
-subsystemStore.createSubsystem("Inverters", subsystemStore.subsystemStates[8])
+subsystemStore.createSubsystem("Compressor", subsystemStore.subsystemStates[0])
+subsystemStore.createSubsystem("Fan", subsystemStore.subsystemStates[0])
+//subsystemStore.createSubsystem("Propulsion", subsystemStore.subsystemStates[0])
+subsystemStore.createSubsystem("Levitation", subsystemStore.subsystemStates[0])
+subsystemStore.createSubsystem("Suspension", subsystemStore.subsystemStates[0])
+//subsystemStore.createSubsystem("Inverters", subsystemStore.subsystemStates[0])
 subsystemStore.createSubsystem("Braking", subsystemStore.subsystemStates[0])
+subsystemStore.createSubsystem("Wheels", subsystemStore.subsystemStates[0])
 
 export default subsystemStore

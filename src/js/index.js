@@ -19,10 +19,33 @@ ReactDOM.render(
 // subsystemStore.updateSubsystem("compressor", "COMPRESSOR_STARTING")
 
 var client = mqtt.connect("ws://localhost:9883/")
-client.subscribe("debug")
+client.subscribe("#")
+
+var topic_to_subsystem = {
+  "remote_subsystem/suspension": "Suspension",
+  "subsystem/braking": "Braking",
+  "subsystem/compressor": "Compressor",
+  "subsystem/fan": "Fan",
+//  "subsystem/inverters": "Inverters",
+  "subsystem/levitation": "Levitation",
+//  "subsystem/propulsion": "Propulsion",
+  "subsystem/wheels": "Wheels"
+}
 
 client.on("message", function (topic, payload) {
-  alert([topic, payload].join(": "))
-})
+  payload = String(payload);
+  try {
+    var payload_json = JSON.parse(payload);
+  } catch(e) {
+  }
 
-client.publish("debug", "hello world!")
+  if (topic.startsWith("debug/")) {
+    console.log(topic + ": " + payload);
+    terminalStore.createMessage((new Date).toTimeString(), topic, payload);
+  }
+
+  var mapping = topic_to_subsystem[topic];
+  if (mapping != undefined) {
+    subsystemStore.updateSubsystem(mapping, payload_json["state"]);
+  }
+})
