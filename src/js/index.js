@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 
 import terminalStore from './stores/TerminalStore'
 import subsystemStore from './stores/SubsystemStore'
+import batteryStore from './stores/BatteryStore'
 
 import HyperloopApp from "./components/HyperloopApp"
 
@@ -11,7 +12,7 @@ String.prototype.capitalizeFirstLetter = function() {
 }
 
 ReactDOM.render(
-  <HyperloopApp terminalStore={terminalStore} subsystemStore={subsystemStore} />,
+  <HyperloopApp terminalStore={terminalStore} subsystemStore={subsystemStore} batteryStore={batteryStore} />,
   document.getElementById("app")
 )
 
