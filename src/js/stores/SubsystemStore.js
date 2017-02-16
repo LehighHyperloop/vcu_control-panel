@@ -49,11 +49,13 @@ class Subsystem {
   @observable id
   @observable name
   @observable currentState
+  @observable extraText
 
   constructor(name, currentState) {
     this.id = Math.random()
     this.name = name.toLowerCase()
     this.currentState = currentState
+    this.extraText = ""
   }
 
   getSubsystemState() {
@@ -76,6 +78,12 @@ class SubsystemStore {
     return this.subsystems.find(s => s.name === subsystemName)
   }
 
+  updateExtra(subsystemName, extraText) {
+    subsystemName = subsystemName.toLowerCase()
+    let sys = this.subsystems.find(s => s.name === subsystemName)
+    sys.extraText = extraText
+  }
+
   updateSubsystem(subsystemName, newStateName) {
     subsystemName = subsystemName.toLowerCase()
     newStateName = newStateName.toLowerCase()
@@ -94,7 +102,7 @@ let subsystemStore = window.subsystemStore = new SubsystemStore
 // all the possible states of subsystems
 // defined here so we can define their "level" (color)
 subsystemStore.subsystemStates = [
-  new SubsystemState("STATE_UNKNOWN", "warning"),
+  new SubsystemState("STATE_UNKNOWN", "error"),
   new SubsystemState("STOPPED", "stopped"),
   new SubsystemState("VFD_STARTING", "progress"),
   new SubsystemState("COMPRESSOR_STARTING", "progress"),
@@ -110,8 +118,8 @@ subsystemStore.subsystemStates = [
   new SubsystemState("RUNNING_AND_LOGGING", "ok"),
   new SubsystemState("DOWN", "stopped"),
   new SubsystemState("UP", "ok"),
-  new SubsystemState("OFF", "stopped"),
-  new SubsystemState("ON", "ok"),
+  new SubsystemState("OFF", "ok"),
+  new SubsystemState("ON", "stopped"),
 ]
 
 subsystemStore.createSubsystem("Compressor", subsystemStore.subsystemStates[0])
@@ -119,8 +127,9 @@ subsystemStore.createSubsystem("Fan", subsystemStore.subsystemStates[0])
 //subsystemStore.createSubsystem("Propulsion", subsystemStore.subsystemStates[0])
 subsystemStore.createSubsystem("Levitation", subsystemStore.subsystemStates[0])
 subsystemStore.createSubsystem("Suspension", subsystemStore.subsystemStates[0])
-//subsystemStore.createSubsystem("Inverters", subsystemStore.subsystemStates[0])
+subsystemStore.createSubsystem("Inverters", subsystemStore.subsystemStates[0])
 subsystemStore.createSubsystem("Braking", subsystemStore.subsystemStates[0])
 subsystemStore.createSubsystem("Wheels", subsystemStore.subsystemStates[0])
+subsystemStore.createSubsystem("LateralControl", subsystemStore.subsystemStates[0])
 
 export default subsystemStore

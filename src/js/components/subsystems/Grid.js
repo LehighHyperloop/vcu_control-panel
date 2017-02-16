@@ -8,7 +8,7 @@ class Grid extends Component {
   render() {
 
     const subsystems = this.props.subsystems.map(sys => (
-      <Subsystem key={sys.id} sysName={sys.name} sysState={sys.currentState}/>
+      <Subsystem key={sys.id} sysName={sys.name} sysState={sys.currentState} sysExtraText={sys.extraText} />
     ))
 
     return (

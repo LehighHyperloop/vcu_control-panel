@@ -6,7 +6,7 @@ class Subsystem extends Component {
 
   render() {
 
-    const { sysName } = this.props
+    const { sysName, sysExtraText } = this.props
     const stateName = this.props.sysState.name
     const stateLevel = this.props.sysState.level
 
@@ -21,7 +21,7 @@ class Subsystem extends Component {
 
       case "stopped":
         cardClass = "danger"
-        iconClass = "fa-pause-circle"
+        iconClass = "fa-times"
         break;
 
       case "error":
@@ -51,6 +51,7 @@ class Subsystem extends Component {
             <i className={"fa " + iconClass + " fa-3x"}></i>
             <h4 className="card-title">{sysName.capitalizeFirstLetter()}</h4>
             <p className="card-title">{stateName.toUpperCase()}</p>
+            <p className="card-text">{sysExtraText}</p>
           </div>
         </div>
       </div>
